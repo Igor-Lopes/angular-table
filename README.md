@@ -1,4 +1,4 @@
-# angular-table [![Build Status](https://travis-ci.org/samu/angular-table.png?branch=master)](https://travis-ci.org/samu/angular-table)
+# angular-table [![Build Status](https://travis-ci.org/Igor-Lopes/angular-table.svg?branch=master)](https://travis-ci.org/Igor-Lopes/angular-table)
 
 Angular directive which allows to declare sortable tables and to add
 pagination with very little effort.
