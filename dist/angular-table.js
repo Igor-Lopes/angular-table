@@ -430,10 +430,10 @@
       this.setupInitialSorting($scope);
       if (!$scope.getSortIcon) {
         $scope.getSortIcon = function(predicate, currentPredicate, descending) {
+          console.log('get sort icon');
           if (predicate !== $scope.predicate) {
             return "fas fa-minus";
-          }
-          if (descending) {
+          } else if (descending) {
             return "fas fa-chevron-down";
           } else {
             return "fas fa-chevron-up";
