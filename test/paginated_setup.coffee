@@ -8,8 +8,8 @@ describe "angular-table", () ->
     stepAhead = '›'
     jumpBack  = '«'
     jumpAhead = '»'
-    first      = 'First'
-    last       = 'Last'
+    first      = 'Primeiro'
+    last       = 'Último'
 
     setups = [{
         template: "paginated_setup.html"
@@ -213,7 +213,7 @@ describe "angular-table", () ->
 
                 expect(@gui.pagination.pages).toEqual([1, 2, 3, 4, 5])
                 expect(@gui.pagination.representation).toEqual(
-                  ['First', '‹', '1', '2', '3', '4', '5', '›', 'Last'])
+                  ['Primeiro', '‹', '1', '2', '3', '4', '5', '›', 'Último'])
 
             it "shows a subsection of pages if maximum pages is smaller than total pages", () ->
               @gui.alterScope((scopeWrapper, vars) ->
@@ -222,7 +222,7 @@ describe "angular-table", () ->
 
               expect(@gui.pagination.pages).toEqual([1, 2, 3])
               expect(@gui.pagination.representation).toEqual(
-                  [ 'First', '«', '‹', '1', '2', '3', '›', '»', 'Last' ])
+                  [ 'Primeiro', '«', '‹', '1', '2', '3', '›', '»', 'Último' ])
 
           describe "heavy interaction", () ->
             it "updates when the length of the list changes", () ->
@@ -239,7 +239,7 @@ describe "angular-table", () ->
               )
 
               expect(@gui.table.rows).toEqual [['a'], ['z'], ['&nbsp;']]
-              expect(@gui.pagination.representation).toEqual ['First', '‹', '1', '›', 'Last']
+              expect(@gui.pagination.representation).toEqual ['Primeiro', '‹', '1', '›', 'Último']
               expect(@gui.pagination.pages).toEqual [1]
 
               @gui.alterScope((scopeWrapper, vars) ->
@@ -248,7 +248,7 @@ describe "angular-table", () ->
               )
 
               expect(@gui.table.rows).toEqual [['a'], ['b'], ['x']]
-              expect(@gui.pagination.representation).toEqual ['First', '‹', '1', '2', '›', 'Last']
+              expect(@gui.pagination.representation).toEqual ['Primeiro', '‹', '1', '2', '›', 'Último']
               expect(@gui.pagination.pages).toEqual [1, 2]
 
               @gui.clickPagination(2)
@@ -263,13 +263,13 @@ describe "angular-table", () ->
 
               expect(@gui.table.rows).toEqual [['u'], ['x'], ['y']]
               expect(@gui.pagination.representation).toEqual(
-                  [ 'First', '«', '‹', '1', '2', '›', '»', 'Last' ])
+                  [ 'Primeiro', '«', '‹', '1', '2', '›', '»', 'Último' ])
 
               @gui.clickPagination(stepAhead)
 
               expect(@gui.table.rows).toEqual [['z'], ['&nbsp;'], ['&nbsp;']]
               expect(@gui.pagination.representation).toEqual(
-                  [ 'First', '«', '‹', '2', '3', '›', '»', 'Last' ])
+                  [ 'Primeiro', '«', '‹', '2', '3', '›', '»', 'Último' ])
 
 
             it "updates when ever a configuration parameter changes", () ->

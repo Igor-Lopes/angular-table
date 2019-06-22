@@ -1,4 +1,4 @@
-version = "1.0.7"
+version = "2.0.0"
 
 banner = "
 // author:   Samuel Mueller \n
@@ -54,6 +54,7 @@ module.exports = (grunt) ->
         banner: banner
 
   grunt.loadNpmTasks('grunt-contrib-uglify')
+  grunt.loadNpmTasks('grunt-contrib-uglify-es')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-banner')
 
