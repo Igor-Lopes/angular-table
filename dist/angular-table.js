@@ -430,8 +430,6 @@
       this.setupInitialSorting($scope);
       $scope.change = function(event, predicate) {
         var j, len, ref, svg, th;
-        console.log(event);
-        console.log(angular.element(event.currentTarget).find('svg'));
         ref = angular.element(event.currentTarget).closest('tr').find('th');
         for (j = 0, len = ref.length; j < len; j++) {
           th = ref[j];
@@ -441,11 +439,7 @@
             svg.removeClass('fa-chevron-down');
             svg.addClass('fa-minus');
           }
-          console.log(th);
         }
-        console.log(predicate);
-        console.log($scope.predicate);
-        console.log($scope.descending);
         if ($scope.descending) {
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-down');
@@ -456,7 +450,7 @@
           angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
         }
         if (predicate !== $scope.predicate) {
-          $scope.descending = false;
+          $scope.descending = true;
         } else {
           $scope.descending = !$scope.descending;
         }

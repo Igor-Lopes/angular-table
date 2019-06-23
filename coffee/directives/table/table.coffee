@@ -38,19 +38,12 @@ class Table
     @setupInitialSorting($scope)
 
     $scope.change = (event, predicate) ->
-      console.log(event)
-      console.log(angular.element(event.currentTarget).find('svg'))
       for th in angular.element(event.currentTarget).closest('tr').find('th')
         svg = angular.element(th).find('svg')
         if (svg.hasClass('fa-chevron-up') || svg.hasClass('fa-chevron-down'))
             svg.removeClass('fa-chevron-up')
             svg.removeClass('fa-chevron-down')
             svg.addClass('fa-minus')
-        console.log(th)
-
-      console.log(predicate)
-      console.log($scope.predicate)
-      console.log($scope.descending)
 
       if ($scope.descending)
         angular.element(event.currentTarget).find('svg').addClass('fa-chevron-up')
@@ -62,7 +55,7 @@ class Table
         angular.element(event.currentTarget).find('svg').removeClass('fa-minus')
 
       if(predicate != $scope.predicate)
-        $scope.descending = false
+        $scope.descending = true
       else
         $scope.descending = !$scope.descending
 
