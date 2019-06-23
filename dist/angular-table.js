@@ -46,7 +46,7 @@
     renderSorting(element) {
       var icon;
       if (this.sortable) {
-        element.attr("ng-click", `change($event, '${this.attribute}'), descending`);
+        element.attr("ng-click", `change($event, '${this.attribute}')`);
         icon = angular.element("<i style='margin-left: 10px;'></i>");
         icon.attr("ng-class", `'fas fa-' + getSortIcon('${this.attribute}', predicate, descending)`);
         return element.append(icon);
