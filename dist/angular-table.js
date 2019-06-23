@@ -47,12 +47,9 @@
       var icon;
       if (this.sortable) {
         element.attr("ng-click", `predicate = '${this.attribute}'; descending = !descending;`);
-        icon = angular.element("<i style='margin-left: 10px; cursor: pointer;'></i>");
+        icon = angular.element("<i style='margin-left: 10px;'></i>");
         icon.attr("ng-class", `getSortIcon('${this.attribute}', predicate, descending)`);
-        element.append(icon);
-        return $(element).click(function() {
-          return console.log("sorted!");
-        });
+        return element.append(icon);
       }
     }
 
@@ -245,8 +242,7 @@
       tbody = element.find("tbody");
       tr = tbody.find("tr");
       tr.attr("ng-repeat", repeatString);
-      tbody;
-      return console.log(tbody);
+      return tbody;
     }
 
   };
