@@ -28,8 +28,6 @@ class ColumnConfiguration
       icon = angular.element("<i style='margin-left: 10px; cursor: pointer;'></i>")
       icon.attr("ng-class", "getSortIcon('#{@attribute}', predicate, descending)")
       element.append(icon)
-      $(element).click ->
-        console.log("sorted!")
 
   renderWidth: (element) ->
     element.attr("width", @width)
