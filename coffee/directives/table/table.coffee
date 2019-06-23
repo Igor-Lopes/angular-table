@@ -38,7 +38,6 @@ class Table
     @setupInitialSorting($scope)
     if not $scope.getSortIcon
       $scope.getSortIcon = (predicate, currentPredicate, descending) ->
-        console.log('get sort icon')
         if predicate != $scope.predicate
           return "fas fa-minus"
         else if descending
