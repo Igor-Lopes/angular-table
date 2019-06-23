@@ -431,12 +431,12 @@
       if (!$scope.getSortIcon) {
         $scope.getSortIcon = function(predicate, currentPredicate, descending) {
           if (predicate !== $scope.predicate) {
-            return "glyphicon glyphicon-minus";
+            return "fas fa-minus";
           }
           if (descending) {
-            return "glyphicon glyphicon-chevron-down";
+            return "fas fa-chevron-down";
           } else {
-            return "glyphicon glyphicon-chevron-up";
+            return "fas fa-chevron-up";
           }
         };
       }
