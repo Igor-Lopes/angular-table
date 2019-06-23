@@ -26,7 +26,9 @@ class ColumnConfiguration
     if @sortable
       element.attr("ng-click", "predicate = '#{@attribute}'; descending = !descending;")
       icon = angular.element("<i style='margin-left: 10px;'></i>")
+      # 'alert-' + (customersModalCtrl.alertMessage.type)
       # icon.attr("ng-class", "getSortIcon('#{@attribute}', predicate, descending)")
+      icon.attr("ng-class", "'fas fa-' + getSortIcon('#{@attribute}', predicate, descending)")
       element.append(icon)
 
   renderWidth: (element) ->
