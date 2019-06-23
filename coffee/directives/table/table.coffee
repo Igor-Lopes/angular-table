@@ -37,6 +37,9 @@ class Table
   post: ($scope, $element, $attributes, $filter) ->
     @setupInitialSorting($scope)
 
+    $scope.meuTeste = () ->
+      console.log('cliquei')
+
     if not $scope.getSortIcon
       $scope.getSortIcon = (predicate, currentPredicate, descending) ->
         if predicate != $scope.predicate
