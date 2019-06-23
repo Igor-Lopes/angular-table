@@ -432,8 +432,6 @@
         var j, len, ref, svg, th;
         console.log(event);
         console.log(angular.element(event.currentTarget).find('svg'));
-        $scope.predicate = predicate;
-        $scope.descending = !$scope.descending;
         ref = angular.element(event.currentTarget).closest('tr').find('th');
         for (j = 0, len = ref.length; j < len; j++) {
           th = ref[j];
@@ -448,14 +446,16 @@
         console.log(predicate);
         console.log($scope.predicate);
         if ($scope.descending) {
-          angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-up');
-          angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down');
-          return angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
-        } else {
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-down');
-          return angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
+          angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
+        } else {
+          angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-up');
+          angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down');
+          angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
         }
+        $scope.predicate = predicate;
+        return $scope.descending = !$scope.descending;
       };
       if (!$scope.getSortIcon) {
         $scope.getSortIcon = function(predicate, currentPredicate, descending) {
