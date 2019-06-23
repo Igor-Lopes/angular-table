@@ -28,6 +28,6 @@ class ScopeConfigWrapper
       stepAhead: '›'
       jumpBack: '«'
       jumpAhead: '»'
-      first: 'Primeiro'
-      last: 'Último'
+      first: 'First'
+      last: 'Last'
     @scope.$eval(@configurationVariableNames.paginatorLabels) || paginatorLabelsDefault
