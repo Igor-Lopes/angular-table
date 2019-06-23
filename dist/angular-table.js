@@ -432,11 +432,7 @@
       $scope.change = function(event, predicate) {
         console.log(event);
         console.log(angular.element(event.currentTarget).find('svg'));
-        if (predicate !== $scope.predicate) {
-          angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-up');
-          angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-down');
-          angular.element(event.currentTarget).find('svg').addClass('fa-minus');
-        } else if ($scope.descending) {
+        if ($scope.descending) {
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down');
           angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
