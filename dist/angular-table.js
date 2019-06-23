@@ -125,8 +125,8 @@
         stepAhead: '›',
         jumpBack: '«',
         jumpAhead: '»',
-        first: 'First',
-        last: 'Last'
+        first: 'Primeiro',
+        last: 'Último'
       };
       return this.scope.$eval(this.configurationVariableNames.paginatorLabels) || paginatorLabelsDefault;
     }
