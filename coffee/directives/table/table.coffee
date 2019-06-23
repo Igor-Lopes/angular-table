@@ -43,8 +43,13 @@ class Table
       $scope.predicate = predicate
       $scope.descending = !$scope.descending
 
-      th = angular.element(event.currentTarget).closest('tr').find('th')
-      console.log(th)
+      for th in angular.element(event.currentTarget).closest('tr').find('th')
+        svg = angular.element(th).find('svg')
+        if (svg.hasClass('fa-chevron-up') || svg.hasClass('fa-chevron-down'))
+            svg.removeClass('fa-chevron-up')
+            svg.removeClass('fa-chevron-down')
+            svg.addClass('fa-minus')
+        console.log(th)
 
       console.log(predicate)
       console.log($scope.predicate)
