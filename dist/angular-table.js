@@ -445,6 +445,7 @@
         }
         console.log(predicate);
         console.log($scope.predicate);
+        console.log($scope.descending);
         if ($scope.descending) {
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-down');
@@ -454,8 +455,12 @@
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down');
           angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
         }
-        $scope.predicate = predicate;
-        return $scope.descending = !$scope.descending;
+        if (predicate !== $scope.predicate) {
+          $scope.descending = false;
+        } else {
+          $scope.descending = !$scope.descending;
+        }
+        return $scope.predicate = predicate;
       };
       if (!$scope.getSortIcon) {
         $scope.getSortIcon = function(predicate, currentPredicate, descending) {

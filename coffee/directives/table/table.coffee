@@ -50,6 +50,7 @@ class Table
 
       console.log(predicate)
       console.log($scope.predicate)
+      console.log($scope.descending)
 
       if ($scope.descending)
         angular.element(event.currentTarget).find('svg').addClass('fa-chevron-up')
@@ -60,8 +61,12 @@ class Table
         angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down')
         angular.element(event.currentTarget).find('svg').removeClass('fa-minus')
 
+      if(predicate != $scope.predicate)
+        $scope.descending = false
+      else
+        $scope.descending = !$scope.descending
+
       $scope.predicate = predicate
-      $scope.descending = !$scope.descending
 
     if not $scope.getSortIcon
       $scope.getSortIcon = (predicate, currentPredicate, descending) ->
