@@ -36,13 +36,10 @@ class Table
 
   post: ($scope, $element, $attributes, $filter) ->
     @setupInitialSorting($scope)
+
     if not $scope.getSortIcon
       $scope.getSortIcon = (predicate, currentPredicate, descending) ->
-        if predicate != $scope.predicate
-          return "fas fa-minus"
-        else if descending
-          return "fas fa-chevron-down"
-        else
-          return "fas fa-chevron-up"
+        return "glyphicon glyphicon-minus" if predicate != $scope.predicate
+        if descending then "glyphicon glyphicon-chevron-down" else "glyphicon glyphicon-chevron-up"
 
     @setup.link($scope, $element, $attributes, $filter)

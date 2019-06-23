@@ -49,7 +49,10 @@
         element.attr("ng-click", `predicate = '${this.attribute}'; descending = !descending;`);
         icon = angular.element("<i style='margin-left: 10px; cursor: pointer;'></i>");
         icon.attr("ng-class", `getSortIcon('${this.attribute}', predicate, descending)`);
-        return element.append(icon);
+        element.append(icon);
+        return $(element).click(function() {
+          return console.log("sorted!");
+        });
       }
     }
 
@@ -242,7 +245,8 @@
       tbody = element.find("tbody");
       tr = tbody.find("tr");
       tr.attr("ng-repeat", repeatString);
-      return tbody;
+      tbody;
+      return console.log(tbody);
     }
 
   };
@@ -431,11 +435,12 @@
       if (!$scope.getSortIcon) {
         $scope.getSortIcon = function(predicate, currentPredicate, descending) {
           if (predicate !== $scope.predicate) {
-            return "fas fa-minus";
-          } else if (descending) {
-            return "fas fa-chevron-down";
+            return "glyphicon glyphicon-minus";
+          }
+          if (descending) {
+            return "glyphicon glyphicon-chevron-down";
           } else {
-            return "fas fa-chevron-up";
+            return "glyphicon glyphicon-chevron-up";
           }
         };
       }

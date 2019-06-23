@@ -4,3 +4,4 @@ class Setup
     tr = tbody.find "tr"
     tr.attr("ng-repeat", repeatString)
     tbody
+    console.log(tbody)
