@@ -49,7 +49,10 @@
         element.attr("ng-click", `predicate = '${this.attribute}'; descending = !descending;`);
         icon = angular.element("<i style='margin-left: 10px;'></i>");
         icon.attr("ng-class", `getSortIcon('${this.attribute}', predicate, descending)`);
-        return element.append(icon);
+        element.append(icon);
+        return angular.element(icon).click(function() {
+          return console.log('click');
+        });
       }
     }
 
@@ -435,9 +438,8 @@
           }
           if (descending) {
             return "fas fa-chevron-down";
-          } else {
-            return "fas fa-chevron-up";
           }
+          return "fas fa-chevron-up";
         };
       }
       return this.setup.link($scope, $element, $attributes, $filter);

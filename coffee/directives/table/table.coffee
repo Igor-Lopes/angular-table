@@ -39,7 +39,10 @@ class Table
 
     if not $scope.getSortIcon
       $scope.getSortIcon = (predicate, currentPredicate, descending) ->
-        return "fas fa-minus" if predicate != $scope.predicate
-        if descending then "fas fa-chevron-down" else "fas fa-chevron-up"
+        if predicate != $scope.predicate
+          return "fas fa-minus"
+        if descending
+          return "fas fa-chevron-down"
+        return "fas fa-chevron-up"
 
     @setup.link($scope, $element, $attributes, $filter)
