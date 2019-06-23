@@ -49,10 +49,7 @@
         element.attr("ng-click", `predicate = '${this.attribute}'; descending = !descending;`);
         icon = angular.element("<i style='margin-left: 10px;'></i>");
         icon.attr("ng-class", `getSortIcon('${this.attribute}', predicate, descending)`);
-        element.append(icon);
-        return angular.element(icon).click(function() {
-          return console.log('click');
-        });
+        return element.append(icon);
       }
     }
 
@@ -431,17 +428,19 @@
 
     post($scope, $element, $attributes, $filter) {
       this.setupInitialSorting($scope);
-      if (!$scope.getSortIcon) {
-        $scope.getSortIcon = function(predicate, currentPredicate, descending) {
-          if (predicate !== $scope.predicate) {
-            return "fas fa-minus";
-          }
-          if (descending) {
-            return "fas fa-chevron-down";
-          }
-          return "fas fa-chevron-up";
-        };
-      }
+      // if not $scope.getSortIcon
+      $scope.getSortIcon = function(predicate, currentPredicate, descending) {
+        if (predicate !== $scope.predicate) {
+          console.log('fas fa-minus');
+          return "fas fa-minus";
+        }
+        if (descending) {
+          console.log('fas fa-chevron-down');
+          return "fas fa-chevron-down";
+        }
+        console.log('fas fa-chevron-up');
+        return "fas fa-chevron-up";
+      };
       return this.setup.link($scope, $element, $attributes, $filter);
     }
 
