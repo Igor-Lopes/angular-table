@@ -46,8 +46,7 @@
     renderSorting(element) {
       var icon;
       if (this.sortable) {
-        // predicate = '#{@attribute}'; descending = !descending;
-        element.attr("ng-click", `change($event, '${this.attribute}')`);
+        element.attr("ng-click", `change($event, '${this.attribute}'), descending`);
         icon = angular.element("<i style='margin-left: 10px;'></i>");
         icon.attr("ng-class", `'fas fa-' + getSortIcon('${this.attribute}', predicate, descending)`);
         return element.append(icon);
@@ -430,10 +429,15 @@
     post($scope, $element, $attributes, $filter) {
       this.setupInitialSorting($scope);
       $scope.change = function(event, predicate) {
+        var th;
         console.log(event);
         console.log(angular.element(event.currentTarget).find('svg'));
         $scope.predicate = predicate;
         $scope.descending = !$scope.descending;
+        th = angular.element(event.currentTarget).closest('tr').find('th');
+        console.log(th);
+        console.log(predicate);
+        console.log($scope.predicate);
         if ($scope.descending) {
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down');

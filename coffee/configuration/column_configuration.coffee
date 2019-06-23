@@ -24,8 +24,7 @@ class ColumnConfiguration
 
   renderSorting: (element) ->
     if @sortable
-      # predicate = '#{@attribute}'; descending = !descending;
-      element.attr("ng-click", "change($event, '#{@attribute}')")
+      element.attr("ng-click", "change($event, '#{@attribute}'), descending")
       icon = angular.element("<i style='margin-left: 10px;'></i>")
       icon.attr("ng-class", "'fas fa-' + getSortIcon('#{@attribute}', predicate, descending)")
       element.append(icon)
