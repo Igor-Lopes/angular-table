@@ -47,7 +47,7 @@
       var icon;
       if (this.sortable) {
         // predicate = '#{@attribute}'; descending = !descending;
-        element.attr("ng-click", `meuTeste('${this.attribute}')`);
+        element.attr("ng-click", `change($event, '${this.attribute}')`);
         icon = angular.element("<i style='margin-left: 10px;'></i>");
         icon.attr("ng-class", `'fas fa-' + getSortIcon('${this.attribute}', predicate, descending)`);
         return element.append(icon);
@@ -429,8 +429,9 @@
 
     post($scope, $element, $attributes, $filter) {
       this.setupInitialSorting($scope);
-      $scope.meuTeste = function(predicate) {
-        console.log('cliquei');
+      $scope.change = function(event, predicate) {
+        console.log($element);
+        console.log(event);
         $scope.predicate = predicate;
         return $scope.descending = !$scope.descending;
       };

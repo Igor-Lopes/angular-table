@@ -37,8 +37,9 @@ class Table
   post: ($scope, $element, $attributes, $filter) ->
     @setupInitialSorting($scope)
 
-    $scope.meuTeste = (predicate) ->
-      console.log('cliquei')
+    $scope.change = (event, predicate) ->
+      console.log($element)
+      console.log(event)
       $scope.predicate = predicate
       $scope.descending = !$scope.descending
 
