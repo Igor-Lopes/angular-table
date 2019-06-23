@@ -432,17 +432,17 @@
       $scope.change = function(event, predicate) {
         console.log(event);
         console.log(angular.element(event.currentTarget).find('svg'));
+        $scope.predicate = predicate;
+        $scope.descending = !$scope.descending;
         if ($scope.descending) {
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-down');
-          angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
+          return angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
         } else {
           angular.element(event.currentTarget).find('svg').addClass('fa-chevron-up');
           angular.element(event.currentTarget).find('svg').removeClass('fa-chevron-down');
-          angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
+          return angular.element(event.currentTarget).find('svg').removeClass('fa-minus');
         }
-        $scope.predicate = predicate;
-        return $scope.descending = !$scope.descending;
       };
       if (!$scope.getSortIcon) {
         $scope.getSortIcon = function(predicate, currentPredicate, descending) {
